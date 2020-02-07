@@ -1,0 +1,15 @@
+
+T
+squid:S106("9Replace this use of System.out or System.err by a logger.(ŠÊÉ¸ùÿÿÿÿ
+Osquid:S1612;",Replace this lambda with a method reference.(¬ùú˜øÿÿÿÿ8‡ìæÓ.
+1squid:S1220""Move this file to a named package.
+Hsquid:S16110"2Remove the parentheses around the "line" parameter(“¨
+4squid:S1700
+"Rename field "gameField"(Ïƒ›ûÿÿÿÿ
+O
+squid:S106*"9Replace this use of System.out or System.err by a logger.(éçˆÑ
+isquid:S21848"FCast one of the operands of this multiplication operation to a "long".(Âê“ øÿÿÿÿ8ª‚õÒ.
+Osquid:S16125",Replace this lambda with a method reference.(ë¶Ÿøÿÿÿÿ8ú¿Ğ.
+T
+squid:S106+"9Replace this use of System.out or System.err by a logger.(¢ÚÒ€üÿÿÿÿ
+Usquid:S16115"2Remove the parentheses around the "line" parameter(ë¶Ÿøÿÿÿÿ8ú¿Ğ.
