@@ -3,11 +3,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class InputReader {
+public class Reader {
 
     private String inputFileName;
 
-    InputReader(String fileName) {
+    Reader(String fileName) {
         inputFileName = fileName;
     }
 

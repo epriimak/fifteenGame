@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="30750308-a408-48fc-a7e3-072634228189" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_15_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_6_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_6_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_6_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/solution" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Writer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/GameFieldShifterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/SolverTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/WriterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/gameFieldWith1StepSolution" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Direction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/FifteenGame.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GameField.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GameFieldException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GameFieldShifter$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GameFieldShifter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/fifteen-game.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Reader.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Solver$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Solver$GameFieldItem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Solver.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/SolverException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Writer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/3x3field" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/GameFieldShifterTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/GameFieldTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/META-INF/fifteen-game.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/ReaderTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/SolverTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/WriterTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/emptyFile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/gameFieldContains99" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/gameFieldHas3Rows" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/gameFieldIsNotSolvable" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/gameFieldIsSolvable" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/gameFieldSolution" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/gameFieldWith1StepSolution" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fifteen-game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/fifteen-game.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FifteenGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FifteenGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameFieldShifter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameFieldShifter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/InputReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Reader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Solver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GameFieldTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GameFieldTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GameStepRunnerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/InputReaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ReaderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/3x3field" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/3x3field" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/gameField" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/gameFieldIsSolvable" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/gameFieldHasNoSolution" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/gameFieldIsNotSolvable" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XNoopBISGlzlTPru7tXYyOFZvu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.FifteenGame">
+    <configuration name="FifteenGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FifteenGame" />
+      <module name="fifteen-game" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameFieldTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="fifteen-game" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GameFieldTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReaderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="fifteen-game" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ReaderTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="fifteen-game" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SolverTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WriterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="fifteen-game" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="WriterTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.SolverTest" />
+      <item itemvalue="JUnit.GameFieldTest" />
+      <item itemvalue="JUnit.ReaderTest" />
+      <item itemvalue="JUnit.WriterTest" />
+      <item itemvalue="Application.FifteenGame" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.FifteenGame" />
+        <item itemvalue="JUnit.WriterTest" />
+        <item itemvalue="JUnit.SolverTest" />
+        <item itemvalue="JUnit.ReaderTest" />
+        <item itemvalue="JUnit.GameFieldTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="30750308-a408-48fc-a7e3-072634228189" name="Default Changelist" comment="" />
+      <created>1580896090213</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580896090213</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Added .gitignore file">
+      <created>1581352373763</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1581352373763</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added .gitignore file">
+      <created>1581352490427</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1581352490427</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added .gitignore file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added .gitignore file" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="240" y="65" key="#Project_Structure" timestamp="1580979893111">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="240" y="65" key="#Project_Structure/0.0.1280.800@0.0.1280.800" timestamp="1580979893111" />
+    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581097021189">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1581097021189" />
+    <state x="100" y="100" width="1080" height="600" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1580908064459">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="100" y="100" width="1080" height="600" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1280.800@0.0.1280.800" timestamp="1580908064459" />
+    <state x="380" y="210" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581343802496">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="380" y="210" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.800@0.0.1280.800" timestamp="1581343802496" />
+    <state x="386" y="108" key="#com.intellij.ide.util.MemberChooser" timestamp="1581336708386">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="386" y="108" key="#com.intellij.ide.util.MemberChooser/0.0.1280.800@0.0.1280.800" timestamp="1581336708386" />
+    <state x="378" y="183" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1580985322592">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="378" y="183" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1280.800@0.0.1280.800" timestamp="1580985322592" />
+    <state x="377" y="191" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1581097016538">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="377" y="191" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.800@0.0.1280.800" timestamp="1581097016538" />
+    <state x="490" y="296" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1581096794387">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="490" y="296" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.800@0.0.1280.800" timestamp="1581096794387" />
+    <state x="252" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581336124108">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="252" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.800@0.0.1280.800" timestamp="1581336124108" />
+    <state x="273" y="2" key="CommitChangelistDialog2" timestamp="1581352676743">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="273" y="2" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1581352676743" />
+    <state width="1238" height="212" key="GridCell.Tab.0.bottom" timestamp="1581352135483">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1581352135483" />
+    <state width="1238" height="212" key="GridCell.Tab.0.center" timestamp="1581352135482">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1581352135482" />
+    <state width="1238" height="212" key="GridCell.Tab.0.left" timestamp="1581352135481">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1581352135481" />
+    <state width="1238" height="212" key="GridCell.Tab.0.right" timestamp="1581352135482">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1581352135482" />
+    <state width="1238" height="263" key="GridCell.Tab.1.bottom" timestamp="1581337381974">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="263" key="GridCell.Tab.1.bottom/0.0.1280.800@0.0.1280.800" timestamp="1581337381974" />
+    <state width="1238" height="263" key="GridCell.Tab.1.center" timestamp="1581337381972">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="263" key="GridCell.Tab.1.center/0.0.1280.800@0.0.1280.800" timestamp="1581337381972" />
+    <state width="1238" height="263" key="GridCell.Tab.1.left" timestamp="1581337381971">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="263" key="GridCell.Tab.1.left/0.0.1280.800@0.0.1280.800" timestamp="1581337381971" />
+    <state width="1238" height="263" key="GridCell.Tab.1.right" timestamp="1581337381973">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="263" key="GridCell.Tab.1.right/0.0.1280.800@0.0.1280.800" timestamp="1581337381973" />
+    <state x="178" y="62" key="Maven.ArtifactSearchDialog" timestamp="1580986969813">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="178" y="62" key="Maven.ArtifactSearchDialog/0.0.1280.800@0.0.1280.800" timestamp="1580986969813" />
+    <state x="128" y="0" key="SettingsEditor" timestamp="1580978953298">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="128" y="0" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1580978953298" />
+    <state x="370" y="150" width="540" height="524" key="StructurePopup" timestamp="1581093822370">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="370" y="150" width="540" height="524" key="StructurePopup/0.0.1280.800@0.0.1280.800" timestamp="1581093822370" />
+    <state x="240" y="140" key="Vcs.Push.Dialog.v2" timestamp="1581352680177">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1581352680177" />
+    <state x="435" y="185" key="chooseDestDirectoryDialog" timestamp="1580985328933">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="435" y="185" key="chooseDestDirectoryDialog/0.0.1280.800@0.0.1280.800" timestamp="1580985328933" />
+    <state x="319" y="232" key="com.intellij.ide.util.TipDialog" timestamp="1581077079037">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="319" y="232" key="com.intellij.ide.util.TipDialog/0.0.1280.800@0.0.1280.800" timestamp="1581077079037" />
+    <state x="306" y="35" width="667" height="729" key="find.popup" timestamp="1581094606748">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="306" y="35" width="667" height="729" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1581094606748" />
+    <state x="34" y="97" key="new project wizard" timestamp="1581088367803">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="34" y="97" key="new project wizard/0.0.1280.800@0.0.1280.800" timestamp="1581088367803" />
+    <state x="347" y="23" key="refactoring.ChangeSignatureDialog" timestamp="1581094796919">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="347" y="23" key="refactoring.ChangeSignatureDialog/0.0.1280.800@0.0.1280.800" timestamp="1581094796919" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1581350447668">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1581350447668" />
+  </component>
+</project>

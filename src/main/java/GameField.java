@@ -4,14 +4,14 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class GameField {
-    public static final int FIELD_SIZE = 3;
+    public static final int FIELD_SIZE = 4;
     public static final int CELLS_COUNT = FIELD_SIZE * FIELD_SIZE;
 
     private List<Integer> field = new ArrayList<>();
     private int h;
 
-    GameField(InputReader inputReader) throws IOException, GameFieldException {
-        List<List<Integer>> gameFieldAsListOfList = readGameFieldAsListOfList(inputReader);
+    GameField(Reader reader) throws IOException, GameFieldException {
+        List<List<Integer>> gameFieldAsListOfList = readGameFieldAsListOfList(reader);
 
         if (!fieldSizeIsCorrect(gameFieldAsListOfList))
             throw new GameFieldException("Field size is incorrect");
@@ -30,8 +30,8 @@ public class GameField {
         setH();
     }
 
-    private List<List<Integer>> readGameFieldAsListOfList(InputReader inputReader) throws IOException {
-        List<String> lines = inputReader.readDataLinesFromFile();
+    private List<List<Integer>> readGameFieldAsListOfList(Reader reader) throws IOException {
+        List<String> lines = reader.readDataLinesFromFile();
 
         return lines.stream()
                 .map(line -> Arrays.asList(line.split("\\b[\\]\\[\\s]+")))
@@ -95,26 +95,48 @@ public class GameField {
     public List<GameField> getNeighbors() {
         List<GameField> neighborsList = new ArrayList<>();
 
-        neighborsList.add(new GameFieldShifter().shift(this, Direction.UP));
-        neighborsList.add(new GameFieldShifter().shift(this, Direction.DOWN));
-        neighborsList.add(new GameFieldShifter().shift(this, Direction.LEFT));
-        neighborsList.add(new GameFieldShifter().shift(this, Direction.RIGHT));
+        neighborsList.add(GameFieldShifter.shift(this, Direction.UP));
+        neighborsList.add(GameFieldShifter.shift(this, Direction.DOWN));
+        neighborsList.add(GameFieldShifter.shift(this, Direction.LEFT));
+        neighborsList.add(GameFieldShifter.shift(this, Direction.RIGHT));
 
         return neighborsList;
     }
 
-    public void print() {
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
         String startLineRegex = "[ ";
         String endLineRegex = "]\n";
         String regex = " ";
 
         for (int i = 0; i < FIELD_SIZE; i++) {
-            System.out.print(startLineRegex);
+            stringBuilder.append(startLineRegex);
             for (int j = 0; j < FIELD_SIZE; j++)
-                System.out.print(field.get(i * FIELD_SIZE + j) + regex);
-            System.out.print(endLineRegex);
+                stringBuilder.append(field.get(i * FIELD_SIZE + j) + regex);
+            stringBuilder.append(endLineRegex);
         }
-        System.out.println("\n");
+        stringBuilder.append("\n");
+        return stringBuilder.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GameField gameField = (GameField) o;
+
+        for (int i = 0; i < FIELD_SIZE * FIELD_SIZE; i++) {
+            if (this.field.get(i) != gameField.field.get(i))
+                return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(field);
     }
 }
 

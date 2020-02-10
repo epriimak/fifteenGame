@@ -6,30 +6,30 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class InputReaderTest {
+public class ReaderTest {
 
     @Test
     void ifFileNotFoundThenExceptionThrows() {
-        InputReader inputReader = new InputReader("src/test/resources/notExistsFile");
+        Reader reader = new Reader("src/test/resources/notExistsFile");
 
         assertThrows(IOException.class,
-                () -> inputReader.readDataLinesFromFile());
+                () -> reader.readDataLinesFromFile());
     }
 
     @Test
     void ifFileIsEmptyThenReturnsEmptyList() throws IOException {
-        InputReader inputReader = new InputReader("src/test/resources/emptyFile");
+        Reader reader = new Reader("src/test/resources/emptyFile");
 
-        List<String> result = inputReader.readDataLinesFromFile();
+        List<String> result = reader.readDataLinesFromFile();
 
         assertThat(result).isEmpty();
     }
 
     @Test
     void ifFileIsNotEmptyThenReturnsListOfLines() throws IOException {
-        InputReader inputReader = new InputReader("src/test/resources/gameField");
+        Reader reader = new Reader("src/test/resources/gameFieldIsSolvable");
 
-        List<String> result = inputReader.readDataLinesFromFile();
+        List<String> result = reader.readDataLinesFromFile();
 
         assertThat(result).hasSize(GameField.FIELD_SIZE);
     }

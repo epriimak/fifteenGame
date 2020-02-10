@@ -3,7 +3,7 @@ import java.util.List;
 
 public class GameFieldShifter {
 
-    private List<Integer> listOfChangedElements(List<Integer> list, int pos1, int pos2) {
+    private static List<Integer> listOfChangedElements(List<Integer> list, int pos1, int pos2) {
         List<Integer> newList = new ArrayList<>(list);
 
         Integer cell1 = newList.get(pos1);
@@ -15,7 +15,7 @@ public class GameFieldShifter {
         return newList;
     }
 
-    public GameField shift(GameField gameField, Direction direction){
+    public static GameField shift(GameField gameField, Direction direction) {
         List<Integer> field = gameField.getGameField();
         int zeroCellIndex = 0, futureCellIndex = 0;
 
@@ -51,5 +51,17 @@ public class GameFieldShifter {
             return new GameField(listOfChangedElements(field, zeroCellIndex, futureCellIndex));
         } else
             return null;
+    }
+
+    public static Direction getShiftDirection(GameField prevGameField, GameField gameField) {
+        if (prevGameField == null || gameField == null)
+            return null;
+
+        for (Direction direction : Direction.values()) {
+            GameField shiftedGameField = shift(prevGameField, direction);
+            if (shiftedGameField != null && shiftedGameField.equals(gameField))
+                return direction;
+        }
+        return null;
     }
 }

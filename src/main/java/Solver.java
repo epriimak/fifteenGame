@@ -2,7 +2,10 @@ import java.util.*;
 
 public class Solver {
 
-    private class GameFieldItem {    // Need to remember previous positions
+    private List<GameField> resultGameFieldSequence = new ArrayList<>();
+    private final int MAX_COUNT_ITERATIONS = 1000;
+
+    private class GameFieldItem {
         private GameFieldItem prevGameField;
         private GameField gameField;
 
@@ -10,66 +13,88 @@ public class Solver {
             this.prevGameField = prevGameField;
             this.gameField = gameField;
         }
-
-        public GameField getGameField() {
-            return gameField;
-        }
     }
 
-    List<GameField> run (GameField field) {
-        List<GameField> result = new ArrayList<>();
+    Solver(GameField field) throws SolverException {
         PriorityQueue<GameFieldItem> priorityQueue = new PriorityQueue<>(10,
-                (o1, o2) -> new Integer(measure(o1)).compareTo(new Integer(measure(o2))));
+                (o1, o2) -> new Integer(measure(o1)).compareTo(measure(o2)));
 
         priorityQueue.add(new GameFieldItem(null, field));
 
-        while (true) {
-            GameFieldItem gameField = priorityQueue.poll();
+        int iterationsCount = 0;
 
-            //save path if solution founded
-            if (gameField.gameField.getH() == 0) {
-                itemToList(new GameFieldItem(gameField, gameField.gameField), result);
-                return result;
+        while (iterationsCount++ < MAX_COUNT_ITERATIONS) {
+            GameFieldItem gameFieldItem = priorityQueue.poll();
+
+            if (isSolved(gameFieldItem)) {
+                createSolutionGameFieldSequence(new GameFieldItem(gameFieldItem, gameFieldItem.gameField));
+                return;
             }
 
-            for (GameField field1 : gameField.gameField.getNeighbors()) {
-                if (field1 != null && !wasInPath(gameField, field1))
-                    priorityQueue.add(new GameFieldItem(gameField, field1));
+            for (GameField field1 : gameFieldItem.gameField.getNeighbors()) {
+                if (field1 != null && !itemWasInPath(gameFieldItem, field1))
+                    priorityQueue.add(new GameFieldItem(gameFieldItem, field1));
             }
         }
+
+        throw new SolverException("Solution can't be found");
+    }
+
+    private boolean isSolved(GameFieldItem gameFieldItem) {
+        return gameFieldItem.gameField.getH() == 0;
+    }
+
+    public List<GameField> getResultGameFieldSequence() {
+        return resultGameFieldSequence;
+    }
+
+    public List<Direction> getResultDirectionSequence() {
+        List<Direction> resultDirectionSequence = new ArrayList<>();
+
+        for (int i = 0; i < resultGameFieldSequence.size() - 1; i++)
+            resultDirectionSequence.add(GameFieldShifter.getShiftDirection(
+                    resultGameFieldSequence.get(i), resultGameFieldSequence.get(i + 1)));
+
+        return resultDirectionSequence;
     }
 
     private int measure(GameFieldItem item) {
-        GameFieldItem item2 = item;
+        GameFieldItem gameFieldItem = item;
         int c = 0;
-        int measure = item.getGameField().getH();
-        while (true) {
+        int measure = item.gameField.getH();
+        while (gameFieldItem != null) {
             c++;
-            item2 = item2.prevGameField;
-            if (item2 == null) {
-                return measure + c;
-            }
+            gameFieldItem = gameFieldItem.prevGameField;
         }
+
+        return measure + c;
     }
 
-    private void itemToList(GameFieldItem item, List<GameField> result) {
-        GameFieldItem item2 = item;
+    private void createSolutionGameFieldSequence(GameFieldItem item) {
+        GameFieldItem gameFieldItem = item;
         while (true) {
-            item2 = item2.prevGameField;
-            if (item2 == null) {
-                Collections.reverse(result);
+            gameFieldItem = gameFieldItem.prevGameField;
+            if (gameFieldItem == null) {
+                Collections.reverse(resultGameFieldSequence);
                 return;
             }
-            result.add(item2.gameField);
+            resultGameFieldSequence.add(gameFieldItem.gameField);
         }
     }
 
-    private boolean wasInPath(GameFieldItem item, GameField board) {
-        GameFieldItem item2 = item;
-        while (true) {
-            if (item2.gameField.equals(board)) return true;
-            item2 = item2.prevGameField;
-            if (item2 == null) return false;
+    private boolean itemWasInPath(GameFieldItem item, GameField gameField) {
+        GameFieldItem gameFieldItem = item;
+        while (gameFieldItem != null) {
+            if (gameFieldItem.gameField.equals(gameField))
+                return true;
+            gameFieldItem = gameFieldItem.prevGameField;
         }
+        return false;
+    }
+}
+
+class SolverException extends Exception {
+    SolverException(String message) {
+        super(message);
     }
 }

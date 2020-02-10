@@ -11,31 +11,24 @@ public class GameFieldTest {
     @ValueSource(strings = {"src/test/resources/gameFieldHas3Rows",
             "src/test/resources/gameFieldContains99"})
     void ifGameFieldHasInvalidFormatThanExceptionThrows(String fileName) {
-        InputReader inputReader = new InputReader(fileName);
+        Reader reader = new Reader(fileName);
 
         assertThrows(GameFieldException.class,
-                () -> new GameField(inputReader));
+                () -> new GameField(reader));
     }
 
     @Test
     void ifGameFieldIsWellFormedAndSolvableThanNoExceptionThrows() {
-        InputReader inputReader = new InputReader("src/test/resources/gameField");
+        Reader reader = new Reader("src/test/resources/gameFieldIsSolvable");
 
-        assertDoesNotThrow(() -> new GameField(inputReader));
-    }
-
-    @Test
-    void ifGameFieldHasSolutionThanNoExceptionThrows(){
-        InputReader inputReader = new InputReader("src/test/resources/gameField");
-
-        assertDoesNotThrow(() -> new GameField(inputReader));
+        assertDoesNotThrow(() -> new GameField(reader));
     }
 
     @Test
     void ifGameFieldHasNoSolutionThanExceptionThrows() {
-        InputReader inputReader = new InputReader("src/test/resources/gameFieldHasNoSolution");
+        Reader reader = new Reader("src/test/resources/gameFieldIsNotSolvable");
 
-        assertThrows(GameFieldException.class, () -> new GameField(inputReader));
+        assertThrows(GameFieldException.class, () -> new GameField(reader));
     }
 
 }
