@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.util.List;
 
 public class FifteenGame {
     private static void run(String inputFileName, String outputFileName) throws IOException {
@@ -20,6 +19,6 @@ public class FifteenGame {
     }
 
     public static void main(String[] args) throws IOException{
-        run("src/test/resources/gameFieldWith1StepSolution", "solution");
+        run("src/test/resources/gameFieldIsSolvable", "solution");
     }
 }
