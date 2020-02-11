@@ -1,6 +1,8 @@
 import java.io.IOException;
 
 public class FifteenGame {
+    private static final String defaultSolution = "-1";
+
     private static void run(String inputFileName, String outputFileName) throws IOException {
         Reader reader = new Reader(inputFileName);
         Writer writer = new Writer(outputFileName);
@@ -8,17 +10,17 @@ public class FifteenGame {
         try {
             GameField gameField = new GameField(reader);
             Solver solver = new Solver(gameField);
-            writer.writeSolution(solver);
+            writer.write(solver.getSolutionAsString());
         } catch (IOException e) {
             e.printStackTrace();
             throw e;
-        } catch (GameFieldException|SolverException e) {
+        } catch (GameFieldException | SolverException e) {
             e.printStackTrace();
-            writer.writeDefaultValue();
+            writer.write(defaultSolution);
         }
     }
 
-    public static void main(String[] args) throws IOException{
-        run("src/test/resources/gameFieldIsSolvable", "solution");
+    public static void main(String[] args) throws IOException {
+        run("src/test/resources/gameFieldWith1StepSolution", "solution");
     }
 }

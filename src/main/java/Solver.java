@@ -44,11 +44,7 @@ public class Solver {
         return gameFieldItem.gameField.getH() == 0;
     }
 
-    public List<GameField> getResultGameFieldSequence() {
-        return resultGameFieldSequence;
-    }
-
-    public List<Direction> getResultDirectionSequence() {
+    private List<Direction> getResultDirectionSequence() {
         List<Direction> resultDirectionSequence = new ArrayList<>();
 
         for (int i = 0; i < resultGameFieldSequence.size() - 1; i++)
@@ -56,6 +52,27 @@ public class Solver {
                     resultGameFieldSequence.get(i), resultGameFieldSequence.get(i + 1)));
 
         return resultDirectionSequence;
+    }
+
+    public List<GameField> getResultGameFieldSequence() {
+        return resultGameFieldSequence;
+    }
+
+    public String getSolutionAsString() {
+        String initialConfiguration = "Initial configuration:\n\n";
+        String numberOfMovements = "Number of movements: ";
+        List<Direction> directionList = getResultDirectionSequence();
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(initialConfiguration);
+        stringBuilder.append(resultGameFieldSequence.get(0).toString());
+        stringBuilder.append(numberOfMovements + directionList.size() + "\n\n");
+
+        for (int i = 0; i < directionList.size(); i++) {
+            stringBuilder.append(directionList.get(i).name() + "\n");
+            stringBuilder.append(resultGameFieldSequence.get(i + 1).toString());
+        }
+        return stringBuilder.toString();
     }
 
     private int measure(GameFieldItem item) {

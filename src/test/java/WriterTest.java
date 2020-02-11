@@ -1,33 +1,34 @@
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class WriterTest {
 
     @ParameterizedTest
-    @ValueSource(strings = {"src/test/resources/gameFieldHas3Rows",
-            "src/test/resources/gameFieldContains99",
-            "src/test/resources/gameFieldIsNotSolvable",
-            "src/test/resources/gameFieldIsSolvable"
-    })
-    void ifGameFieldIsUnattainableThanPrintedDefaultValueInFile(String fileName) throws IOException, GameFieldException, SolverException {
-        Reader reader = new Reader(fileName);
-        GameField gameField = new GameField(reader);
-        Solver solver = new Solver(gameField);
+    @ValueSource(strings = {"-1", "Any text"})
+    void ifStringIsNotEmptyThanNoExceptionThrows(String value){
+        Writer writer = new Writer("src/test/resources/testNotNullString");
 
-
-
-        assertDoesNotThrow(() -> new Solver(gameField));
+        assertDoesNotThrow(() -> writer.write(value));
     }
 
 
-    @ParameterizedTest
-    @ValueSource(strings = {"src/test/resources/gameFieldWith1StepSolution",
-            "src/test/resources/gameFieldSolution"})
-    void ifGameFieldIsSolvableThanSolutionPrintedInFile(String fileName) {
+    @Test
+    void ifStringIsEmptyThanExceptionThrows() {
+        Writer writer = new Writer("src/test/resources/testEmptyString");
+        String emptyString = "";
 
+        assertThrows(NullPointerException.class, () -> writer.write(emptyString));
+    }
+
+    @Test
+    void ifStringIsNullThanExceptionThrows() {
+        Writer writer = new Writer("src/test/resources/testNullString");
+
+        assertThrows(NullPointerException.class, () -> writer.write(null));
     }
 }
