@@ -1,6 +1,4 @@
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 public class GameTest {
 
@@ -10,13 +8,13 @@ public class GameTest {
     }
 
     @Test
-    void ifSolverExceptionThrowsThanPrintedDefaultValueInFile(String fileName) {
+    void ifSolverExceptionThrowsThanPrintedDefaultValueInFile() {
 
 
     }
 
     @Test
-    void ifGameFieldIsSolvableThanSolutionPrintedInFile(String fileName) {
+    void ifGameFieldIsSolvableThanSolutionPrintedInFile() {
 
     }
 }
