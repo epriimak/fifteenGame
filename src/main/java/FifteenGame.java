@@ -1,9 +1,9 @@
 import java.io.IOException;
 
 public class FifteenGame {
-    private static final String defaultSolution = "-1";
+    public static final String defaultSolution = "-1";
 
-    private static void run(String inputFileName, String outputFileName) throws IOException {
+    public static void run(String inputFileName, String outputFileName) throws IOException {
         Reader reader = new Reader(inputFileName);
         Writer writer = new Writer(outputFileName);
 
@@ -18,6 +18,7 @@ public class FifteenGame {
     }
 
     public static void main(String[] args) throws IOException {
-        run(args[0], args[1]);
+        if(args.length == 2)
+            run(args[0], args[1]);
     }
 }
