@@ -11,7 +11,7 @@ public class GameFieldShifterTest {
     @EnumSource(
             value = Direction.class,
             names = {"UP", "DOWN", "RIGHT"})
-    void ifGameStepDirectionIsPossibleThanNoExceptionThrows(Direction direction) throws IOException, GameFieldException {
+    void ifGameShiftIsPossibleThanReturnsNewField(Direction direction) throws IOException, GameFieldException {
         Reader reader = new Reader("src/test/resources/gameFieldIsSolvable");
         GameField gameField = new GameField(reader);
 
@@ -22,7 +22,7 @@ public class GameFieldShifterTest {
     @EnumSource(
             value = Direction.class,
             names = {"LEFT"})
-    void ifGameStepDirectionIsNotPossibleThanExceptionThrows(Direction direction) throws IOException, GameFieldException {
+    void ifGameShiftIsNotPossibleThanReturnNull(Direction direction) throws IOException, GameFieldException {
         Reader reader = new Reader("src/test/resources/gameFieldIsSolvable");
         GameField gameField = new GameField(reader);
 
@@ -44,26 +44,26 @@ public class GameFieldShifterTest {
     }
 
     @Test
-    void ifAnyOfGameFieldsForGettingShiftedDirectionIsNullThanReturnsNull() throws IOException, GameFieldException {
-        Reader reader = new Reader("src/test/resources/gameFieldIsSolvable");
-        GameField gameField1 = new GameField(reader);
-        GameField gameField2 = null;
-
-        assertEquals(null, GameFieldShifter.getShiftDirection(gameField1, gameField2),
-                "Shift is unreachable for null GameField");
-        assertEquals(null, GameFieldShifter.getShiftDirection(gameField2, gameField1),
-                "Shift is unreachable for null GameField");
-    }
-
-    @Test
-    void ifGameFieldsWereNotReceivedByShiftThanReturnsNull() throws IOException, GameFieldException {
+    void ifGameFieldsWereNotReceivedByShiftThanReturnsUndefinedDirection() throws IOException, GameFieldException {
         Reader reader1 = new Reader("src/test/resources/gameFieldIsSolvable");
         GameField gameField1 = new GameField(reader1);
 
         Reader reader2 = new Reader("src/test/resources/gameFieldWith1StepSolution");
         GameField gameField2 = new GameField(reader2);
 
-        assertEquals(null, GameFieldShifter.getShiftDirection(gameField1, gameField2),
-                "Shift is unreachable");
+        assertEquals(Direction.UNDEFINED, GameFieldShifter.getShiftDirection(gameField1, gameField2),
+                "Shift is not undefined for non-shifted fields");
+    }
+
+    @Test
+    void ifAnyOfGameFieldsForGettingShiftedDirectionIsNullThanReturnsUndefinedException() throws IOException, GameFieldException {
+        Reader reader = new Reader("src/test/resources/gameFieldIsSolvable");
+        GameField gameField1 = new GameField(reader);
+        GameField gameField2 = null;
+
+        assertEquals(Direction.UNDEFINED, GameFieldShifter.getShiftDirection(gameField1, gameField2),
+                "Shift is not undefined for null GameField");
+        assertEquals(Direction.UNDEFINED, GameFieldShifter.getShiftDirection(gameField2, gameField1),
+                "Shift is not undefined for null GameField");
     }
 }

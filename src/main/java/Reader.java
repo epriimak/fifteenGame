@@ -12,11 +12,6 @@ public class Reader {
     }
 
     public List<String> readDataLinesFromFile() throws IOException {
-        try {
-            return Files.readAllLines(Paths.get(inputFileName));
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw e;
-        }
+        return Files.readAllLines(Paths.get(inputFileName));
     }
 }

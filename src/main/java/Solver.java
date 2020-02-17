@@ -3,7 +3,7 @@ import java.util.*;
 public class Solver {
 
     private List<GameField> resultGameFieldSequence = new ArrayList<>();
-    private final int MAX_COUNT_ITERATIONS = 1000;
+    private static final int MAX_COUNT_ITERATIONS = 1000;
 
     private class GameFieldItem {
         private GameFieldItem prevGameField;
@@ -17,7 +17,7 @@ public class Solver {
 
     Solver(GameField field) throws SolverException {
         PriorityQueue<GameFieldItem> priorityQueue = new PriorityQueue<>(10,
-                (o1, o2) -> new Integer(measure(o1)).compareTo(measure(o2)));
+                Comparator.comparingInt(this::measure));
 
         priorityQueue.add(new GameFieldItem(null, field));
 
@@ -26,14 +26,17 @@ public class Solver {
         while (iterationsCount++ < MAX_COUNT_ITERATIONS) {
             GameFieldItem gameFieldItem = priorityQueue.poll();
 
+            if (gameFieldItem == null)
+                throw new SolverException("Head of solver queue is empty");
+
             if (isSolved(gameFieldItem)) {
                 createSolutionGameFieldSequence(new GameFieldItem(gameFieldItem, gameFieldItem.gameField));
                 return;
             }
 
-            for (GameField field1 : gameFieldItem.gameField.getNeighbors()) {
-                if (field1 != null && !itemWasInPath(gameFieldItem, field1))
-                    priorityQueue.add(new GameFieldItem(gameFieldItem, field1));
+            for (GameField neighbor : gameFieldItem.gameField.getNeighbors()) {
+                if (neighbor != null && !itemWasInPath(gameFieldItem, neighbor))
+                    priorityQueue.add(new GameFieldItem(gameFieldItem, neighbor));
             }
         }
 
@@ -48,8 +51,9 @@ public class Solver {
         List<Direction> resultDirectionSequence = new ArrayList<>();
 
         for (int i = 0; i < resultGameFieldSequence.size() - 1; i++)
-            resultDirectionSequence.add(GameFieldShifter.getShiftDirection(
-                    resultGameFieldSequence.get(i), resultGameFieldSequence.get(i + 1)));
+            resultDirectionSequence.add(
+                    GameFieldShifter.getShiftDirection(
+                            resultGameFieldSequence.get(i), resultGameFieldSequence.get(i + 1)));
 
         return resultDirectionSequence;
     }
@@ -66,10 +70,12 @@ public class Solver {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(initialConfiguration);
         stringBuilder.append(resultGameFieldSequence.get(0).toString());
-        stringBuilder.append(numberOfMovements + directionList.size() + "\n\n");
+        stringBuilder.append(numberOfMovements)
+                .append(directionList.size())
+                .append("\n\n");
 
         for (int i = 0; i < directionList.size(); i++) {
-            stringBuilder.append(directionList.get(i).name() + "\n");
+            stringBuilder.append(directionList.get(i).name()).append("\n");
             stringBuilder.append(resultGameFieldSequence.get(i + 1).toString());
         }
         return stringBuilder.toString();
@@ -77,14 +83,15 @@ public class Solver {
 
     private int measure(GameFieldItem item) {
         GameFieldItem gameFieldItem = item;
-        int c = 0;
+        int countNotEmptyElements = 0;
         int measure = item.gameField.getH();
+
         while (gameFieldItem != null) {
-            c++;
+            countNotEmptyElements++;
             gameFieldItem = gameFieldItem.prevGameField;
         }
 
-        return measure + c;
+        return measure + countNotEmptyElements;
     }
 
     private void createSolutionGameFieldSequence(GameFieldItem item) {

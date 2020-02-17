@@ -9,15 +9,12 @@ public class Writer {
     }
 
     void write(String value) throws IOException {
-        if(value.isEmpty())
+        if (value.isEmpty())
             throw new NullPointerException("String is empty");
 
         try (FileWriter fileWriter = new FileWriter(outputFileName)) {
             fileWriter.write(value);
             fileWriter.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw e;
         }
     }
 }

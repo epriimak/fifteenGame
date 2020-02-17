@@ -3,6 +3,8 @@ import java.util.List;
 
 public class GameFieldShifter {
 
+    private GameFieldShifter(){}
+
     private static List<Integer> listOfChangedElements(List<Integer> list, int pos1, int pos2) {
         List<Integer> newList = new ArrayList<>(list);
 
@@ -15,53 +17,64 @@ public class GameFieldShifter {
         return newList;
     }
 
+    private static int getNextIndex(int row, int column, int zeroIndex, Direction direction){
+        switch (direction) {
+            case DOWN:
+                if (row != GameField.FIELD_SIZE - 1)
+                    return zeroIndex + GameField.FIELD_SIZE;
+                break;
+
+            case UP:
+                if (row != 0)
+                    return zeroIndex - GameField.FIELD_SIZE;
+                break;
+
+            case RIGHT:
+                if (column != GameField.FIELD_SIZE - 1)
+                    return ++zeroIndex;
+                break;
+
+            case LEFT:
+                if (column != 0)
+                    return --zeroIndex;
+                break;
+
+            default:
+                break;
+        }
+        return zeroIndex;
+    }
+
     public static GameField shift(GameField gameField, Direction direction) {
         List<Integer> field = gameField.getGameField();
-        int zeroCellIndex = 0, futureCellIndex = 0;
+        int zeroCellIndex = 0;
+        int futureCellIndex = 0;
 
         for (int i = 0; i < GameField.FIELD_SIZE; i++) {
             for (int j = 0; j < GameField.FIELD_SIZE; j++) {
                 if (field.get(i * GameField.FIELD_SIZE + j) == 0) {
                     zeroCellIndex = i * GameField.FIELD_SIZE + j;
-                    futureCellIndex = zeroCellIndex;
-                    switch (direction) {
-                        case DOWN:
-                            if (i != GameField.FIELD_SIZE - 1) futureCellIndex += GameField.FIELD_SIZE;
-                            break;
-
-                        case UP:
-                            if (i != 0) futureCellIndex -= GameField.FIELD_SIZE;
-                            break;
-
-                        case RIGHT:
-                            if (j != GameField.FIELD_SIZE - 1) ++futureCellIndex;
-                            break;
-
-                        case LEFT:
-                            if (j != 0) --futureCellIndex;
-                            break;
-
-                        default:
-                            break;
-                    }
+                    futureCellIndex = getNextIndex(i, j, zeroCellIndex, direction);
                 }
             }
         }
+
         if (zeroCellIndex != futureCellIndex) {
             return new GameField(listOfChangedElements(field, zeroCellIndex, futureCellIndex));
-        } else
+        } else {
             return null;
+        }
     }
 
     public static Direction getShiftDirection(GameField prevGameField, GameField gameField) {
         if (prevGameField == null || gameField == null)
-            return null;
+            return Direction.UNDEFINED;
 
         for (Direction direction : Direction.values()) {
             GameField shiftedGameField = shift(prevGameField, direction);
             if (shiftedGameField != null && shiftedGameField.equals(gameField))
                 return direction;
         }
-        return null;
+        return Direction.UNDEFINED;
     }
 }

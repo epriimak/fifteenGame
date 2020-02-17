@@ -11,9 +11,6 @@ public class FifteenGame {
             GameField gameField = new GameField(reader);
             Solver solver = new Solver(gameField);
             writer.write(solver.getSolutionAsString());
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw e;
         } catch (GameFieldException | SolverException e) {
             e.printStackTrace();
             writer.write(defaultSolution);
@@ -21,6 +18,6 @@ public class FifteenGame {
     }
 
     public static void main(String[] args) throws IOException {
-        run("src/test/resources/gameFieldWith1StepSolution", "solution");
+        run(args[0], args[1]);
     }
 }

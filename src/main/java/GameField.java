@@ -13,13 +13,13 @@ public class GameField {
     GameField(Reader reader) throws IOException, GameFieldException {
         List<List<Integer>> gameFieldAsListOfList = readGameFieldAsListOfList(reader);
 
-        if (!fieldSizeIsCorrect(gameFieldAsListOfList))
+        if (!fieldSizeIsCorrect(gameFieldAsListOfList)) {
             throw new GameFieldException("Field size is incorrect");
-        else if (!fieldHasNumbersFrom0To15(gameFieldAsListOfList))
+        } else if (!fieldHasNumbersFrom0To15(gameFieldAsListOfList)) {
             throw new GameFieldException("Field numbers are incorrect");
-        else if (!fieldIsSolvable(gameFieldAsListOfList))
+        } else if (!fieldIsSolvable(gameFieldAsListOfList)) {
             throw new GameFieldException("Game field is not solvable");
-        else {
+        } else {
             setField(gameFieldAsListOfList);
             setH();
         }
@@ -45,12 +45,14 @@ public class GameField {
 
     private boolean fieldSizeIsCorrect(List<List<Integer>> gameField) {
         return gameField.size() == FIELD_SIZE &&
-                gameField.stream().mapToInt(list -> list.size()).allMatch(num -> num == FIELD_SIZE);
+                gameField.stream()
+                        .mapToInt(List::size)
+                        .allMatch(num -> num == FIELD_SIZE);
     }
 
     private boolean fieldIsSolvable(List<List<Integer>> gameField) {
         List<Integer> gameFieldList = new ArrayList<>();
-        gameField.forEach((list) -> gameFieldList.addAll(list));
+        gameField.forEach(gameFieldList::addAll);
 
         int countInversions = 0;
         for (int i = 0; i < GameField.CELLS_COUNT - 1; i++) {
@@ -65,13 +67,13 @@ public class GameField {
 
     private boolean fieldHasNumbersFrom0To15(List<List<Integer>> gameField) {
         List<Integer> numbers = new ArrayList<>();
-        gameField.forEach((list) -> numbers.addAll(list));
+        gameField.forEach(numbers::addAll);
 
-        List<Integer> correctNumbers = Stream.iterate(0, i -> i + 1).
-                limit(FIELD_SIZE * FIELD_SIZE).collect(Collectors.toList());
+        List<Integer> correctNumbers = Stream.iterate(0, i -> i + 1)
+                .limit(FIELD_SIZE * FIELD_SIZE)
+                .collect(Collectors.toList());
 
         return numbers.containsAll(correctNumbers);
-
     }
 
     public List<Integer> getGameField() {
@@ -79,7 +81,7 @@ public class GameField {
     }
 
     private void setField(List<List<Integer>> gameField) {
-        gameField.forEach((line) -> field.addAll(line));
+        gameField.forEach(line -> field.addAll(line));
     }
 
     private void setH() {
@@ -116,18 +118,23 @@ public class GameField {
                 stringBuilder.append(field.get(i * FIELD_SIZE + j) + regex);
             stringBuilder.append(endLineRegex);
         }
+
         stringBuilder.append("\n");
         return stringBuilder.toString();
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+
+        if (o == null || getClass() != o.getClass())
+            return false;
+
         GameField gameField = (GameField) o;
 
-        for (int i = 0; i < FIELD_SIZE * FIELD_SIZE; i++) {
-            if (this.field.get(i) != gameField.field.get(i))
+        for (int i = 0; i < CELLS_COUNT; i++) {
+            if (!this.field.get(i).equals(gameField.field.get(i)))
                 return false;
         }
 
