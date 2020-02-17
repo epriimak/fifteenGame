@@ -15,7 +15,8 @@ public class GameFieldShifterTest {
         Reader reader = new Reader("src/test/resources/gameFieldIsSolvable");
         GameField gameField = new GameField(reader);
 
-        assertNotNull(GameFieldShifter.shift(gameField, direction));
+        assertNotNull(GameFieldShifter.shift(gameField, direction),
+                "Game field must be shifted");
     }
 
     @ParameterizedTest
@@ -26,7 +27,8 @@ public class GameFieldShifterTest {
         Reader reader = new Reader("src/test/resources/gameFieldIsSolvable");
         GameField gameField = new GameField(reader);
 
-        assertNull(GameFieldShifter.shift(gameField, direction));
+        assertNull(GameFieldShifter.shift(gameField, direction),
+                "Shifted game filed is not exists");
     }
 
     @ParameterizedTest
@@ -40,7 +42,7 @@ public class GameFieldShifterTest {
         GameField gameFieldAfterRightShift = GameFieldShifter.shift(gameField, direction);
 
         assertEquals(direction, GameFieldShifter.getShiftDirection(gameField, gameFieldAfterRightShift),
-                "Shifted direction is not found");
+                "Shifted direction must be founded");
     }
 
     @Test
@@ -52,7 +54,7 @@ public class GameFieldShifterTest {
         GameField gameField2 = new GameField(reader2);
 
         assertEquals(Direction.UNDEFINED, GameFieldShifter.getShiftDirection(gameField1, gameField2),
-                "Shift is not undefined for non-shifted fields");
+                "Shift must be undefined for non-shifted fields");
     }
 
     @Test
