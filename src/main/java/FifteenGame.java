@@ -18,9 +18,9 @@ public class FifteenGame {
     }
 
     public static void main(String[] args) throws IOException {
-        if(args.length == 2) {
+        if (args.length == 2) {
             run(args[0], args[1]);
-        } else{
+        } else {
             throw new IllegalArgumentException("Incorrect number of command arguments");
         }
     }
