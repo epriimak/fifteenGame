@@ -1,9 +1,9 @@
 import java.io.IOException;
 
 public class FifteenGame {
-    private static final String defaultSolution = "-1";
+    public static final String DEFAULT_SOLUTION = "-1";
 
-    private static void run(String inputFileName, String outputFileName) throws IOException {
+    public static void run(String inputFileName, String outputFileName) throws IOException {
         Reader reader = new Reader(inputFileName);
         Writer writer = new Writer(outputFileName);
 
@@ -13,11 +13,15 @@ public class FifteenGame {
             writer.write(solver.getSolutionAsString());
         } catch (GameFieldException | SolverException e) {
             e.printStackTrace();
-            writer.write(defaultSolution);
+            writer.write(DEFAULT_SOLUTION);
         }
     }
 
     public static void main(String[] args) throws IOException {
-        run(args[0], args[1]);
+        if (args.length == 2) {
+            run(args[0], args[1]);
+        } else {
+            throw new IllegalArgumentException("Incorrect number of command arguments");
+        }
     }
 }

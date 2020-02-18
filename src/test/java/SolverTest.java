@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.List;
 
-
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SolverTest {
@@ -18,7 +18,7 @@ public class SolverTest {
         List<GameField> gameFieldList = solver.getResultGameFieldSequence();
         GameField finalGameField = gameFieldList.get(gameFieldList.size() - 1);
 
-        assertEquals(true, finalGameField.equals(gameFieldSolution), "The solution is not correct");
+        assertThat(finalGameField).isEqualTo(gameFieldSolution);
     }
 
     @Test
