@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameTest {
@@ -19,12 +20,10 @@ public class GameTest {
         FifteenGame.run(inputFileName, outputFileName);
 
         List<String> lines = Files.readAllLines(Paths.get(outputFileName));
-        assertTrue(lines.size() == 1,
-                "File must have 1 row");
+        assertThat(lines).hasSize(1);
 
         String actualSolution = lines.get(0);
-        assertTrue(actualSolution.matches(FifteenGame.defaultSolution),
-                "Row must be only -1");
+        assertThat(actualSolution).matches(FifteenGame.DEFAULT_SOLUTION);
     }
 
     @Test

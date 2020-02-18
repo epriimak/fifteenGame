@@ -1,7 +1,7 @@
 import java.io.IOException;
 
 public class FifteenGame {
-    public static final String defaultSolution = "-1";
+    public static final String DEFAULT_SOLUTION = "-1";
 
     public static void run(String inputFileName, String outputFileName) throws IOException {
         Reader reader = new Reader(inputFileName);
@@ -13,7 +13,7 @@ public class FifteenGame {
             writer.write(solver.getSolutionAsString());
         } catch (GameFieldException | SolverException e) {
             e.printStackTrace();
-            writer.write(defaultSolution);
+            writer.write(DEFAULT_SOLUTION);
         }
     }
 
