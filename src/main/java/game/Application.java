@@ -11,10 +11,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 //@EnableAutoConfiguration
 //@PropertySource("application.properties")
 //@EnableJpaRepositories("game")
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 @SpringBootApplication
 public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args).close();
+
     }
 }
