@@ -18,7 +18,9 @@ import java.util.Optional;
 //@Service
 public class FifteenGame {
 
-    FifteenGame(){ System.out.println("FifteenGame");}
+    FifteenGame() {
+        System.out.println("FifteenGame");
+    }
 
     //@Autowired                так как это прописано уже в .properties
     //DataSource dataSource;

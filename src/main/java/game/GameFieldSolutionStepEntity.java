@@ -1,4 +1,5 @@
 package game;
+
 import javax.persistence.*;
 
 @Entity
