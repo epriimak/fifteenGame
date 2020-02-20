@@ -5,13 +5,23 @@ import game.local.GameFieldException;
 import game.local.Solver;
 import game.local.SolverException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import javax.sql.DataSource;
 import java.util.List;
 import java.util.Optional;
 
+
 @Component
+//@Service
 public class FifteenGame {
+
+    FifteenGame(){ System.out.println("FifteenGame");}
+
+    //@Autowired                так как это прописано уже в .properties
+    //DataSource dataSource;
 
     @Autowired
     GameFieldRepository gameFieldRepository;
@@ -19,6 +29,7 @@ public class FifteenGame {
     @Autowired
     GameFieldSolutionStepRepository gameFieldSolutionStepRepository;
 
+    @Bean
     public void run() {
         Optional<GameFieldEntity> optionalField = gameFieldRepository.findById(1L);
         String field = null;
@@ -40,6 +51,7 @@ public class FifteenGame {
         }
     }
 
+    @Bean
     public void printRepositories() {
         Iterable<GameFieldEntity> gameFieldRepositoryAll =
                 gameFieldRepository.findAll();
