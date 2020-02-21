@@ -13,6 +13,13 @@ public class GameFieldEntity {
     @Column(name = "field", length = 200, nullable = false)
     String field;
 
+    public GameFieldEntity(String field) {
+        this.field = field;
+    }
+
+    public GameFieldEntity() {
+    }
+
     @Override
     public String toString() {
         return "GameFieldEntity{" +
