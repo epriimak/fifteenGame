@@ -1,14 +1,12 @@
 package game;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.*;
 
 @Entity
 @Table(schema = "game", name = "game_field_solution_step_entity")
 public class GameFieldSolutionStepEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     Long id;
 
@@ -21,6 +19,9 @@ public class GameFieldSolutionStepEntity {
     public GameFieldSolutionStepEntity(String field, String direction) {
         this.field = field;
         this.direction = direction;
+    }
+
+    public GameFieldSolutionStepEntity() {
     }
 
     @Override
