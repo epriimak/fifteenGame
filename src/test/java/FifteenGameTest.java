@@ -10,7 +10,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GameTest {
+public class FifteenGameTest {
 
     @ParameterizedTest
     @ValueSource(strings={"src/test/resources/gameFieldHas3Rows",

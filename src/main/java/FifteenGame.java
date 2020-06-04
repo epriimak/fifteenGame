@@ -1,3 +1,10 @@
+import GameConfig.GameField;
+import GameConfig.GameFieldException;
+import IO.Reader;
+import IO.Writer;
+import Solution.Solver;
+import Solution.SolverException;
+
 import java.io.IOException;
 
 public class FifteenGame {

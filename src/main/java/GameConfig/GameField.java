@@ -1,3 +1,7 @@
+package GameConfig;
+
+import IO.Reader;
+
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -10,7 +14,7 @@ public class GameField {
     private List<Integer> field = new ArrayList<>();
     private int h;
 
-    GameField(Reader reader) throws IOException, GameFieldException {
+    public GameField(Reader reader) throws IOException, GameFieldException {
         List<List<Integer>> gameFieldAsListOfList = readGameFieldAsListOfList(reader);
 
         if (!fieldSizeIsCorrect(gameFieldAsListOfList)) {
@@ -144,12 +148,6 @@ public class GameField {
     @Override
     public int hashCode() {
         return Objects.hash(field);
-    }
-}
-
-class GameFieldException extends Exception {
-    GameFieldException(String message) {
-        super(message);
     }
 }
 

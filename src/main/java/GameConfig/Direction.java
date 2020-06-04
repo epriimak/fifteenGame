@@ -1,3 +1,5 @@
+package GameConfig;
+
 public enum Direction {
     UP,
     DOWN,

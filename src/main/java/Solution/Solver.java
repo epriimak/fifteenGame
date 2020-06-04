@@ -1,3 +1,9 @@
+package Solution;
+
+import GameConfig.Direction;
+import GameConfig.GameField;
+import GameConfig.GameFieldShifter;
+
 import java.util.*;
 
 public class Solver {
@@ -15,7 +21,7 @@ public class Solver {
         }
     }
 
-    Solver(GameField field) throws SolverException {
+    public Solver(GameField field) throws SolverException {
         PriorityQueue<GameFieldItem> priorityQueue = new PriorityQueue<>(10,
                 Comparator.comparingInt(this::measure));
 
@@ -96,14 +102,13 @@ public class Solver {
 
     private void createSolutionGameFieldSequence(GameFieldItem item) {
         GameFieldItem gameFieldItem = item;
-        while (true) {
+
+        do {
             gameFieldItem = gameFieldItem.prevGameField;
-            if (gameFieldItem == null) {
-                Collections.reverse(resultGameFieldSequence);
-                return;
-            }
             resultGameFieldSequence.add(gameFieldItem.gameField);
-        }
+        } while (gameFieldItem.prevGameField != null);
+
+        Collections.reverse(resultGameFieldSequence);
     }
 
     private boolean itemWasInPath(GameFieldItem item, GameField gameField) {
@@ -114,11 +119,5 @@ public class Solver {
             gameFieldItem = gameFieldItem.prevGameField;
         }
         return false;
-    }
-}
-
-class SolverException extends Exception {
-    SolverException(String message) {
-        super(message);
     }
 }

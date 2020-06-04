@@ -1,14 +1,16 @@
+package IO;
+
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class Writer {
     private String outputFileName;
 
-    Writer(String outputFileName) {
+    public Writer(String outputFileName) {
         this.outputFileName = outputFileName;
     }
 
-    void write(String value) throws IOException {
+    public void write(String value) throws IOException {
         if (value.isEmpty())
             throw new NullPointerException("String is empty");
 

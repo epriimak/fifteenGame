@@ -1,3 +1,6 @@
+package GameConfig;
+
+import IO.Reader;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
@@ -64,8 +67,8 @@ public class GameFieldShifterTest {
         GameField gameField2 = null;
 
         assertEquals(Direction.UNDEFINED, GameFieldShifter.getShiftDirection(gameField1, gameField2),
-                "Shift is not undefined for null GameField");
+                "Shift is not undefined for null GameFieldConfig.GameField");
         assertEquals(Direction.UNDEFINED, GameFieldShifter.getShiftDirection(gameField2, gameField1),
-                "Shift is not undefined for null GameField");
+                "Shift is not undefined for null GameFieldConfig.GameField");
     }
 }

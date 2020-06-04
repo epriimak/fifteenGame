@@ -1,3 +1,8 @@
+package Solution;
+
+import GameConfig.GameField;
+import GameConfig.GameFieldException;
+import IO.Reader;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
