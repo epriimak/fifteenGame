@@ -6,11 +6,17 @@ import GameConfig.GameFieldShifter;
 
 import java.util.*;
 
+/**
+ * Class provides solution for GameField as sequence of game fields and directions
+ */
 public class Solver {
 
     private List<GameField> resultGameFieldSequence = new ArrayList<>();
     private static final int MAX_COUNT_ITERATIONS = 1000;
 
+    /**
+     * Class is need to save order of GameField sequence solution
+     */
     private class GameFieldItem {
         private GameFieldItem prevGameField;
         private GameField gameField;
@@ -21,6 +27,11 @@ public class Solver {
         }
     }
 
+    /**
+     * Solves GameField or throws exception if it is not possible
+     * @param field
+     * @throws SolverException
+     */
     public Solver(GameField field) throws SolverException {
         PriorityQueue<GameFieldItem> priorityQueue = new PriorityQueue<>(10,
                 Comparator.comparingInt(this::measure));
@@ -68,6 +79,10 @@ public class Solver {
         return resultGameFieldSequence;
     }
 
+    /**
+     * Create output solution as string with special format
+     * @return solution
+     */
     public String getSolutionAsString() {
         String initialConfiguration = "Initial configuration:\n\n";
         String numberOfMovements = "Number of movements: ";
@@ -87,6 +102,9 @@ public class Solver {
         return stringBuilder.toString();
     }
 
+    /**
+     * This measure is used for creating priority queue
+     */
     private int measure(GameFieldItem item) {
         GameFieldItem gameFieldItem = item;
         int countNotEmptyElements = 0;

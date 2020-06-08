@@ -5,6 +5,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+/**
+ * Class provides reading list of string from input file
+ */
 public class Reader {
     private String inputFileName;
 

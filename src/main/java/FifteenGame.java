@@ -7,9 +7,18 @@ import Solution.SolverException;
 
 import java.io.IOException;
 
+/**
+ * Main game class
+ */
 public class FifteenGame {
     public static final String DEFAULT_SOLUTION = "-1";
 
+    /**
+     * Running game solution
+     * @param inputFileName input game field configuration
+     * @param outputFileName output file name for writing solution
+     * @throws IOException
+     */
     public static void run(String inputFileName, String outputFileName) throws IOException {
         Reader reader = new Reader(inputFileName);
         Writer writer = new Writer(outputFileName);

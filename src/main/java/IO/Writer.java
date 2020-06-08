@@ -3,6 +3,9 @@ package IO;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Class provides writing such string in output file
+ */
 public class Writer {
     private String outputFileName;
 

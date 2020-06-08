@@ -7,6 +7,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Class provides game field with 16 cells with number from 1 to 15
+ * "Empty" cell has "0" value
+ * Game field is created with file configuration
+ * If game field can not be created, it throws GameFieldException
+ */
 public class GameField {
     public static final int FIELD_SIZE = 4;
     public static final int CELLS_COUNT = FIELD_SIZE * FIELD_SIZE;
@@ -88,6 +94,9 @@ public class GameField {
         gameField.forEach(line -> field.addAll(line));
     }
 
+    /**
+     * Count cells with incorrect number
+     */
     private void setH() {
         for (int i = 0; i < CELLS_COUNT; i++)
             if (field.get(i) != i + 1 && field.get(i) != 0)

@@ -3,10 +3,18 @@ package GameConfig;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class provides new GameField
+ * that was created by shifting "zero" cell by such direction
+ */
 public class GameFieldShifter {
 
     private GameFieldShifter(){}
 
+    /**
+     * Change elements in pos1 and pos2 in List
+     * @return new list woth changed elements
+     */
     private static List<Integer> listOfChangedElements(List<Integer> list, int pos1, int pos2) {
         List<Integer> newList = new ArrayList<>(list);
 
@@ -19,6 +27,9 @@ public class GameFieldShifter {
         return newList;
     }
 
+    /**
+     * Get new index for "zero" cell due to direction
+     */
     private static int getNextIndex(int row, int column, int zeroIndex, Direction direction){
         switch (direction) {
             case DOWN:
@@ -47,6 +58,9 @@ public class GameFieldShifter {
         return zeroIndex;
     }
 
+    /**
+     * Get new GameField due to moving "zero" cell in such direction
+     */
     public static GameField shift(GameField gameField, Direction direction) {
         List<Integer> field = gameField.getGameField();
         int zeroCellIndex = 0;
@@ -68,6 +82,9 @@ public class GameFieldShifter {
         }
     }
 
+    /**
+     * Find direction that gameField was created from prevGameField
+     */
     public static Direction getShiftDirection(GameField prevGameField, GameField gameField) {
         if (prevGameField == null || gameField == null)
             return Direction.UNDEFINED;
